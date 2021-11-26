@@ -3,13 +3,15 @@ package uk.co.sheffieldwebprogrammer.feigntest.feignrest;
 import feign.Request;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
-import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-public class FeignRequestInterceptor implements RequestInterceptor {
+
+public class FeignRequestInterceptor1 implements RequestInterceptor {
+    private static final Logger LOG= LoggerFactory.getLogger(FeignRequestInterceptor1.class);
 
     @Override
     public void apply(RequestTemplate requestTemplate) {
@@ -20,6 +22,7 @@ public class FeignRequestInterceptor implements RequestInterceptor {
 //                        .equals("X-Custom-Header"))
 //                .collect(Collectors.toMap(Map.Entry::getKey,
 //                        Map.Entry::getValue));
+        LOG.info("in FeignRequestInterceptor1");
         requestTemplate.header("test1", "added by interceptor 1");
 //        requestTemplate.headers(collect);
     }
