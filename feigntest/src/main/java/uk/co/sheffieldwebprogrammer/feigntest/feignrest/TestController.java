@@ -10,14 +10,14 @@ import java.util.Map;
 public class TestController {
 
     @Autowired
-    private backendClient backendClient;
+    private backendClient1 backendClient1;
     @Autowired
     private backendClient2 backendClient2;
 
     @GetMapping("test1")
     public String get1(@RequestHeader Map<String, String> headers){
         System.out.println(headers);
-        System.out.println(backendClient.getHello());
+        System.out.println(backendClient1.getHello());
         return "hi1";
     }
     @GetMapping("test2")
